@@ -1,0 +1,316 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", Lalezar, cursive, sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  min-height: 100vh;
+  background: rgb(2, 44, 46);
+  background: radial-gradient(
+    circle,
+    rgba(2, 44, 46, 1) 4%,
+    rgba(10, 94, 134, 1) 50%,
+    rgba(5, 23, 32, 1) 83%
+  );
+}
+
+/***************************Load Animation*************/
+#preloader {
+  background-color: #002244;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: hidden;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10%;
+}
+
+.loader {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 6rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  animation: pulsOut 1.8s ease-in-out infinite;
+  filter: drop-shadow(0 0 1rem rgba(255, 255, 255, 0.75));
+}
+
+.loader:before {
+  width: 100%;
+  padding-bottom: 100%;
+  box-shadow: inset 0 0 0 1rem #fff;
+  animation-name: pulsIn;
+}
+
+.loader:after {
+  width: calc(100% - 2rem);
+  padding-bottom: calc(100% - 2rem);
+  box-shadow: 0 0 0 0 #fff;
+}
+
+@keyframes pulsIn {
+  0% {
+    box-shadow: inset 0 0 0 1rem #fff;
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    box-shadow: inset 0 0 0 0 #fff;
+    opacity: 0;
+  }
+}
+
+@keyframes pulsOut {
+  0%,
+  50% {
+    box-shadow: 0 0 0 0 #fff;
+    opacity: 0;
+  }
+
+  100% {
+    box-shadow: 0 0 0 1rem #fff;
+    opacity: 1;
+  }
+}
+/***************************Load Animation*************/
+
+.container {
+  max-width: 600px;
+  width: 80%;
+  padding: 25px;
+  background: transparent;
+  border-radius: 20px;
+  box-shadow: 0px 0px 36px -5px #007899;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+/*the border*/
+.wrapper {
+  border-radius: 16px;
+  border: 3px solid black;
+}
+
+.wrapper .text-input {
+  display: block;
+}
+
+/*Midline-bottom*/
+.text-input .to-text {
+  border-radius: 0px;
+  border-top: 3px solid black;
+}
+
+/*the box area*/
+.text-input textarea {
+  height: 200px;
+  width: 100%; /*Midline-bottom*/
+  border: none; /*the two rectangles*/
+  outline: none;
+  resize: none;
+  background: none;
+  font-size: 20px;
+  padding: 10px 15px;
+  border-radius: 0.3rem;
+}
+
+/*enter text & translation*/
+.text-input textarea::placeholder {
+  color: #878787;
+}
+
+.controls,
+li,
+.icons,
+.icons ion-icon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/*Midline-top*/
+.controls {
+  list-style: none;
+  padding: 12px 15px;
+  border-top: 3px solid #000;
+}
+
+/*Midpoint spacing*/
+.controls .row .icons {
+  width: 38%;
+}
+
+/*the icons=speaker and copy*/
+.controls .row .icons ion-icon {
+  width: 30px;
+  color: #787878;
+  font-size: 1.7rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  justify-content: center;
+}
+
+.controls .row .icons ion-icon:hover {
+  color: #5caae6;
+}
+
+/*the small vertical dividers on midlines(left)*/
+.controls .row.from .icons {
+  padding-right: 15px;
+  border-right: 2px solid #000;
+}
+
+/*the small vertical dividers on midlines(right)*/
+.controls .row.to .icons {
+  padding-left: 15px;
+  border-left: 2px solid #000;
+}
+
+/*the languauges displayed*/
+.controls .row select {
+  color: #000;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  background: none;
+  padding-left: 5px;
+}
+
+.text-input textarea::-webkit-scrollbar {
+  width: 4px;
+}
+
+.controls .row select::-webkit-scrollbar {
+  width: 8px;
+}
+
+.text-input textarea::-webkit-scrollbar-track,
+.controls .row select::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+.text-input textarea::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 8px;
+}
+
+.controls .row select::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 8px;
+  border-right: 2px solid #ffffff;
+}
+
+/*up&down sign*/
+.controls .exchange {
+  color: #de7c7c;
+  cursor: pointer;
+  font-size: 1.7rem;
+  transition: transform 0.2s ease;
+}
+
+.controls .exchange:hover {
+  color: #e21818;
+}
+
+.controls .exchange:active {
+  transform: scale(0.9);
+}
+
+.controls ion-icon:active {
+  transform: scale(0.9);
+}
+
+/*the translate button*/
+.container button {
+  width: 100%;
+  padding: 14px;
+  outline: none;
+  border: 3px solid #007899;
+  color: #000;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 1.4rem;
+  border-radius: 16px;
+  background-color: transparent;
+}
+
+.container button:hover {
+  background-color: #007899;
+}
+
+.container button:active {
+  transform: scale(0.97);
+}
+
+@media (max-width: 660px) {
+  .container {
+    padding: 20px;
+  }
+  .wrapper .text-input {
+    flex-direction: column;
+  }
+
+  .text-input .to-text {
+    border-left: 0px;
+    border-top: 3px solid #878787;
+  }
+
+  .text-input textarea {
+    height: 200px;
+  }
+
+  .controls .row .icons {
+    display: inline-flex;
+    flex-direction: column;
+  }
+  .container button {
+    padding: 13px;
+    font-size: 1.2rem;
+  }
+  .controls .row select {
+    font-size: 1.2rem;
+  }
+  .controls .exchange {
+    font-size: 1.2rem;
+  }
+}
+@media screen and (max-width: 1250px) {
+  .container {
+    zoom: 0.7;
+  }
+}
+
+.footer {
+  background: #33333371;
+  padding: 5px;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  flex-shrink: 0;
+}
